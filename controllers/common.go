@@ -2,6 +2,9 @@ package controllers
 
 import (
 	"encoding/json"
+	// "fmt"
+	// "github.com/crowdmob/goamz/aws"
+	// "github.com/crowdmob/goamz/sqs"
 	"io/ioutil"
 	"net/http"
 )
@@ -41,3 +44,20 @@ func getRequestBody(r *http.Request) ([]byte, error) {
 	return jsonBody, err
 
 }
+
+// func parseCronTime(cronTime []byte) (c CronTime) {
+
+// 	ct := CronTime{}
+
+// 	err := json.Unmarshal(cronTime, ct)
+
+// 	if err != nil {
+// 		panic(err)
+// 	}
+
+// 	fmt.Printf("second %d\n", ct.second)
+// 	fmt.Printf("minute %d\n", ct.minute)
+
+// 	c = ct
+// 	return
+// }

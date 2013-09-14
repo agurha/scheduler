@@ -12,7 +12,15 @@ import (
 	Schedule Job request handler accepts a Json Object of structure
 
 	{
-  		"ScheduleTime" : "Hello",
+		"ScheduleTime" :
+		    {
+		      "second" : 0,
+		      "minute" : 1,
+		      "hour" :10,
+		      "dayOfMonth" : 1,
+		      "month" : 1,
+		      "dayOfWeek": 2
+		    },
   		"CallbackUrl" : "https://somecallback.com",
   		"JobDescriptor" : "SendPush"
 	}
@@ -35,7 +43,7 @@ func ScheduleJob(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	log.Println(job.ScheduleTime)
+	log.Println(job)
 
-	fmt.Fprintf(w, "Job Posted Successfully to %s", r.URL.Path[1:])
+	fmt.Fprintf(w, "Job Posted Successfully to %s", r.URL.Path)
 }
