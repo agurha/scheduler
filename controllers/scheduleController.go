@@ -8,6 +8,15 @@ import (
 	"net/http"
 )
 
+/*
+	Schedule Job request handler accepts a Json Object of structure
+
+	{
+  		"ScheduleTime" : "Hello",
+  		"CallbackUrl" : "https://somecallback.com",
+  		"JobDescriptor" : "SendPush"
+	}
+*/
 func ScheduleJob(w http.ResponseWriter, r *http.Request) {
 
 	log.Println("Schedule a Job")
