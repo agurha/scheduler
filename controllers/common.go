@@ -6,6 +6,7 @@ import (
 	// "github.com/crowdmob/goamz/aws"
 	// "github.com/crowdmob/goamz/sqs"
 	"io/ioutil"
+	"log"
 	"net/http"
 )
 
@@ -22,6 +23,7 @@ func (r Response) String() (s string) {
 	}
 
 	s = string(b)
+	log.Println("String we have is :", s)
 	return
 }
 
@@ -44,20 +46,3 @@ func getRequestBody(r *http.Request) ([]byte, error) {
 	return jsonBody, err
 
 }
-
-// func parseCronTime(cronTime []byte) (c CronTime) {
-
-// 	ct := CronTime{}
-
-// 	err := json.Unmarshal(cronTime, ct)
-
-// 	if err != nil {
-// 		panic(err)
-// 	}
-
-// 	fmt.Printf("second %d\n", ct.second)
-// 	fmt.Printf("minute %d\n", ct.minute)
-
-// 	c = ct
-// 	return
-// }
