@@ -1,13 +1,22 @@
 package main
 
 import (
+	"flag"
+	"fmt"
 	"github.com/agurha/scheduler/controllers"
 	"github.com/gorilla/mux"
 	"log"
 	"net/http"
 )
 
+var (
+	port = flag.String("port", "3000", "Port to run server on")
+)
+
 func main() {
+
+	//Before we set the router ... we should start a channel
+	// which would be infinite loop
 
 	r := mux.NewRouter()
 
@@ -17,7 +26,7 @@ func main() {
 
 	http.Handle("/", r)
 
-	log.Println("Scheduler Server running on port 8080")
-	log.Fatal(http.ListenAndServe(":8080", r))
+	log.Printf("Scheduler Server running on port %s\n", *port)
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", *port), r))
 
 }
